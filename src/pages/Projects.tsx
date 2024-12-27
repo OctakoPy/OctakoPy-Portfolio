@@ -16,6 +16,9 @@ const Projects = () => {
     queryKey: ['projects'],
     queryFn: async () => {
       const response = await fetch('https://api.github.com/users/OctakoPy/repos');
+      if (!response.ok) {
+        throw new Error('Failed to fetch projects');
+      }
       return response.json() as Promise<Repository[]>;
     },
   });
@@ -45,10 +48,12 @@ const Projects = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="project-card"
+                className="project-card p-6 rounded-lg border border-border bg-card hover:bg-card/80 transition-colors"
+                onClick={() => window.open(project.html_url, '_blank')}
+                style={{ cursor: 'pointer' }}
               >
                 <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
-                <p className="text-foreground/80 mb-4">{project.description}</p>
+                <p className="text-foreground/80 mb-4">{project.description || 'No description available'}</p>
                 
                 {project.topics.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -69,6 +74,7 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <Github className="w-4 h-4" />
                     Source
@@ -79,6 +85,7 @@ const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors"
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <ExternalLink className="w-4 h-4" />
                       Live Demo
