@@ -35,14 +35,16 @@ const Index = () => {
           >
             <Link
               to="/projects"
-              className="group px-6 py-3 bg-primary text-primary-foreground rounded-lg flex items-center gap-2 hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center justify-center group px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105"
             >
-              View My Work
-              <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              <span className="flex items-center gap-2">
+                View My Work
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
             </Link>
             <Link
               to="/about"
-              className="px-6 py-3 border border-border rounded-lg hover:bg-muted transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-muted transition-all duration-300 hover:scale-105"
             >
               About Me
             </Link>
