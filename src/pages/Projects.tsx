@@ -11,15 +11,48 @@ interface Repository {
   topics: string[];
 }
 
+// Sample project data since we're making it up for now
+const sampleProjects: Repository[] = [
+  {
+    id: 1,
+    name: "AI-Powered-Assistant",
+    description: "An intelligent chatbot built with Python and OpenAI's GPT-3 API. Features natural language processing and context-aware responses.",
+    html_url: "https://github.com/OctakoPy/AI-Powered-Assistant",
+    homepage: "",
+    topics: ["artificial-intelligence", "machine-learning", "python", "openai"]
+  },
+  {
+    id: 2,
+    name: "Smart-Home-Hub",
+    description: "A centralized IoT platform for managing smart home devices. Includes real-time monitoring and automated scheduling features.",
+    html_url: "https://github.com/OctakoPy/Smart-Home-Hub",
+    homepage: "https://smart-home-hub.demo.com",
+    topics: ["iot", "react", "nodejs", "raspberry-pi"]
+  },
+  {
+    id: 3,
+    name: "Data-Visualization-Dashboard",
+    description: "Interactive dashboard for visualizing complex datasets. Built with React and D3.js, featuring customizable charts and real-time updates.",
+    html_url: "https://github.com/OctakoPy/Data-Visualization-Dashboard",
+    homepage: "",
+    topics: ["data-visualization", "react", "d3js", "typescript"]
+  },
+  {
+    id: 4,
+    name: "Blockchain-Wallet",
+    description: "A secure cryptocurrency wallet supporting multiple blockchain networks. Implements advanced encryption and transaction signing.",
+    html_url: "https://github.com/OctakoPy/Blockchain-Wallet",
+    homepage: "https://blockchain-wallet.demo.com",
+    topics: ["blockchain", "cryptocurrency", "security", "web3"]
+  }
+];
+
 const Projects = () => {
   const { data: projects, isLoading } = useQuery({
     queryKey: ['projects'],
     queryFn: async () => {
-      const response = await fetch('https://api.github.com/users/OctakoPy/repos');
-      if (!response.ok) {
-        throw new Error('Failed to fetch projects');
-      }
-      return response.json() as Promise<Repository[]>;
+      // For now, return our sample data instead of fetching
+      return sampleProjects;
     },
   });
 
@@ -53,20 +86,18 @@ const Projects = () => {
                 style={{ cursor: 'pointer' }}
               >
                 <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
-                <p className="text-foreground/80 mb-4">{project.description || 'No description available'}</p>
+                <p className="text-foreground/80 mb-4">{project.description}</p>
                 
-                {project.topics.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.topics.map((topic) => (
-                      <span
-                        key={topic}
-                        className="px-2 py-1 text-xs rounded-full bg-primary/20 text-primary"
-                      >
-                        {topic}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.topics.map((topic) => (
+                    <span
+                      key={topic}
+                      className="px-2 py-1 text-xs rounded-full bg-primary/20 text-primary"
+                    >
+                      {topic}
+                    </span>
+                  ))}
+                </div>
                 
                 <div className="flex gap-4">
                   <a
