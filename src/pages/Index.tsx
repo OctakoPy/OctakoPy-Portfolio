@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen pt-20">
       <div className="container mx-auto px-6">
@@ -34,17 +36,19 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Button asChild>
-              <Link to="/projects" className="group">
-                View My Work
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+            <Button 
+              onClick={() => navigate('/projects')}
+              className="group"
+            >
+              View My Work
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
 
-            <Button variant="outline" asChild>
-              <Link to="/about">
-                About Me
-              </Link>
+            <Button 
+              variant="outline" 
+              onClick={() => navigate('/about')}
+            >
+              About Me
             </Button>
           </motion.div>
         </div>
