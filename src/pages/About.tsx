@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Calendar, MapPin } from 'lucide-react';
+import { Mail, Github, Linkedin, Calendar, MapPin, Discord } from 'lucide-react';
 
 const About = () => {
   const skills = [
@@ -97,7 +97,7 @@ const About = () => {
             </div>
           </section>
 
-          <section>
+          <section className="mb-16">
             <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
             <div className="flex flex-wrap gap-6">
               <a
@@ -124,6 +124,15 @@ const About = () => {
               >
                 <Linkedin className="w-5 h-5" />
                 LinkedIn
+              </a>
+              <a
+                href="https://discord.com/users/yourusername"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors"
+              >
+                <Discord className="w-5 h-5" />
+                Discord
               </a>
             </div>
           </section>
