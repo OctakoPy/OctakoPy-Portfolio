@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Calendar, MapPin, Discord } from 'lucide-react';
+import { Mail, Github, Linkedin, Calendar, MapPin, MessageSquare } from 'lucide-react';
 
 const About = () => {
   const skills = [
@@ -131,7 +131,7 @@ const About = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors"
               >
-                <Discord className="w-5 h-5" />
+                <MessageSquare className="w-5 h-5" />
                 Discord
               </a>
             </div>
