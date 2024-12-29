@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -36,20 +35,20 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Button 
+            <button 
               onClick={() => navigate('/projects')}
-              className="group"
+              className="group flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/80 transition-colors"
             >
               View My Work
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </button>
 
-            <Button 
-              variant="outline" 
+            <button 
               onClick={() => navigate('/about')}
+              className="px-6 py-3 border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors"
             >
               About Me
-            </Button>
+            </button>
           </motion.div>
         </div>
       </div>
