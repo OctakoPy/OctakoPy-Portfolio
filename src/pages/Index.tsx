@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const Index = () => {
   return (
@@ -33,21 +34,18 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Link
-              to="/projects"
-              className="inline-flex items-center justify-center group px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105"
-            >
-              <span className="flex items-center gap-2">
+            <Button asChild>
+              <Link to="/projects" className="group">
                 View My Work
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
-            </Link>
-            <Link
-              to="/about"
-              className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-muted transition-all duration-300 hover:scale-105"
-            >
-              About Me
-            </Link>
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+
+            <Button variant="outline" asChild>
+              <Link to="/about">
+                About Me
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </div>
